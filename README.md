@@ -24,11 +24,7 @@ Active development
 Experimental scripts and modular systems available in feature branches
 
 branches
-feature/player-movement player movement implimented here
-feature/MainMenu main menu layout in progres
-content/level1-setup 1 lavel layout created without obsticles
-feature/BetweenRomsCameraChange camera controll
-feature/obsticel obsticles implimented here
+bug-fix/Player_movement_fix
 main 
 
 <img width="1578" height="882" alt="image" src="https://github.com/user-attachments/assets/284ff38d-b7d8-42d4-a9af-78ed0fff8e77" />
