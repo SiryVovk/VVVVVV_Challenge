@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: fac517d21f63b9c4c9e7a51bd7aab7ea
+guid: 33e9593e841261a40a91c64121f6af97
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -102,7 +102,7 @@ ScriptedImporter:
     generateIndividualEvents: 1
     generateSpriteAtlas: 1
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638982293900798161
+  platformSettingsDirtyTick: 638989386481773985
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -127,7 +127,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: Spike
+  - name: SavePointActive
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -139,7 +139,7 @@ ScriptedImporter:
       y: 4
       width: 16
       height: 16
-    spriteID: 05b8afe2943a65b4697dc05c158d4ea8
+    spriteID: 386d97f28ce79d24ebdfcffaf411a056
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -153,17 +153,17 @@ ScriptedImporter:
   asepriteLayers:
   - layerIndex: 0
     uuid:
-      value0: 788633264
+      value0: 1707997361
       value1: 0
       value2: 0
       value3: 0
-    guid: 788633264
-    name: Spike
+    guid: 1707997361
+    name: SavePointActive
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Spike
+    - name: SavePointActive
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
@@ -171,7 +171,7 @@ ScriptedImporter:
         y: 0
         width: 16
         height: 16
-      spriteId: 05b8afe2943a65b4697dc05c158d4ea8
+      spriteId: 386d97f28ce79d24ebdfcffaf411a056
     linkedCells: []
     tileCells: []
     tileSetIndex: 0
