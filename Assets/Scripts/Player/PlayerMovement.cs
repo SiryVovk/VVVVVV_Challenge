@@ -1,15 +1,17 @@
 using UnityEngine;
-using UnityEngine.XR;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField] private LayerMask groundLayer;
+
     [SerializeField] private float speed = 5f;
 
     private PlayerInput playerInput;
     private Rigidbody2D rb;
 
     private float moveDirection;
-    private bool isOnGround = true;
+    private bool isGravityInverted = false;
+
 
     private void Awake()
     {
@@ -22,17 +24,21 @@ public class PlayerMovement : MonoBehaviour
     private void OnDestroy()
     {
         playerInput.OnMove -= HandleMove;
+        playerInput.OnGravity -= HandleGravityChange;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        Move();     
+        Move();
     }
 
     private void Move()
     {
-        Vector3 movement = new Vector3(moveDirection, 0, 0) * Time.deltaTime * speed;
-        transform.Translate(movement);
+        Vector2 velocity = rb.linearVelocity;
+
+        velocity.x = moveDirection * speed;
+
+        rb.linearVelocity = velocity;
     }
 
     private void HandleMove(float direction)
@@ -42,20 +48,16 @@ public class PlayerMovement : MonoBehaviour
 
     private void HandleGravityChange()
     {
-        if (!isOnGround)
+        if(!IsOnGrond())
         {
             return;
         }
 
         rb.gravityScale = -rb.gravityScale;
-        isOnGround = false;
     }
     
-    private void OnCollisionEnter2D(Collision2D collision)
+    private bool IsOnGrond()
     {
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            isOnGround = true;
-        }
+        return rb.IsTouchingLayers(groundLayer);
     }
 }
