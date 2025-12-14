@@ -10,7 +10,6 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
 
     private float moveDirection;
-    private bool isGravityInverted = false;
 
 
     private void Awake()
@@ -59,5 +58,11 @@ public class PlayerMovement : MonoBehaviour
     private bool IsOnGrond()
     {
         return rb.IsTouchingLayers(groundLayer);
+    }
+
+    public void Respawn()
+    {
+        rb.linearVelocity = Vector2.zero;
+        rb.gravityScale = Mathf.Abs(rb.gravityScale);
     }
 }
