@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SavePoint : MonoBehaviour
 {
@@ -14,8 +15,9 @@ public class SavePoint : MonoBehaviour
             return;
         }
 
-        if(collision.gameObject.GetComponent<PlayerMovement>())
+        if(collision.gameObject.TryGetComponent(out PlayerMovement player))
         {
+            SaveManager.SaveData(player.transform.position, SceneManager.GetActiveScene());
             DeactivatePoint();
         }
     }
