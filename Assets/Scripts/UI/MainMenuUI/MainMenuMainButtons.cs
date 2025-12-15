@@ -1,21 +1,37 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenuMainButtons : MonoBehaviour
 {
     [SerializeField] private GameObject mainMenuUI;
     [SerializeField] private GameObject optionsMenuUI;
     [SerializeField] private GameObject creditsMenuUI;
+    [SerializeField] private Button continueButton;
 
     private const int FIRST_LEVEL_INDEX = 1;
 
+    private void Start()
+    {
+        if(SaveManager.HasSave())
+        {
+            continueButton.interactable = true;
+        }
+        else
+        {
+            continueButton.interactable = false;
+        }
+    }
+
     public void ContinueGame()
     {
-        throw new System.NotImplementedException();
+        SaveManager.LoadToMemory();
+        SceneManager.LoadScene(SaveManager.CurrentSave.sceneName);
     }
 
     public void StartNewGame()
     {
+        SaveManager.DelteSave();
         SceneManager.LoadScene(FIRST_LEVEL_INDEX);
     }
 

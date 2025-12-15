@@ -1,10 +1,18 @@
 using System.IO;
 using UnityEngine.SceneManagement;
 using UnityEngine;
-using System.Runtime.Serialization.Formatters.Binary;
 
 public static class SaveManager
 {
+    public static SaveDataType CurrentSave { get; private set; }
+
+    public static bool IsSaveLoaded => CurrentSave != null;
+    
+    public static void LoadToMemory()
+    {
+        CurrentSave = LoadData();
+    }
+
     public static void SaveData(Vector3 savePosition, Scene scene)
     {
         SaveDataType data = new SaveDataType(savePosition, scene.name);
