@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour, ILoadable
 {
     [SerializeField] private LayerMask groundLayer;
 
@@ -64,5 +64,10 @@ public class PlayerMovement : MonoBehaviour
     {
         rb.linearVelocity = Vector2.zero;
         rb.gravityScale = Mathf.Abs(rb.gravityScale);
+    }
+
+    public void LoadData()
+    {
+        transform.position = new Vector3(SaveManager.CurrentSave.xPlayerPosition, SaveManager.CurrentSave.yPlayerPosition, SaveManager.CurrentSave.yPlayerPosition);
     }
 }
