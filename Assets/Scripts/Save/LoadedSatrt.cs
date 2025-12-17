@@ -9,7 +9,7 @@ public class LoadedSatrt : MonoBehaviour
     {
         if(SaveManager.IsSaveLoaded)
         {
-            playerMovement.transform.position = new Vector3(SaveManager.CurrentSave.xPlayerPosition, SaveManager.CurrentSave.yPlayerPosition, SaveManager.CurrentSave.yPlayerPosition);
+            playerMovement.LoadData();
         }
         else
         {

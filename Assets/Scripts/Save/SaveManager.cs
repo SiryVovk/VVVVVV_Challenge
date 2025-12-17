@@ -13,9 +13,9 @@ public static class SaveManager
         CurrentSave = LoadData();
     }
 
-    public static void SaveData(Vector3 savePosition, Scene scene)
+    public static void SaveData(Vector3 savePosition, Scene scene, bool isKeyCollected = false)
     {
-        SaveDataType data = new SaveDataType(savePosition, scene.name);
+        SaveDataType data = new SaveDataType(savePosition, scene.name, isKeyCollected);
 
         string json = JsonUtility.ToJson(data);
         File.WriteAllText(Application.persistentDataPath + "/save.json", json);

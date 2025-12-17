@@ -15,9 +15,9 @@ public class SavePoint : MonoBehaviour
             return;
         }
 
-        if(collision.gameObject.TryGetComponent(out PlayerMovement player))
+        if(collision.gameObject.TryGetComponent(out PlayerCollisiion player))
         {
-            SaveManager.SaveData(player.transform.position, SceneManager.GetActiveScene());
+            SaveManager.SaveData(player.transform.position, SceneManager.GetActiveScene(), player.HasKey);
             DeactivatePoint();
         }
     }
