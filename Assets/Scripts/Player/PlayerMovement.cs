@@ -1,13 +1,19 @@
+using System;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour, ILoadable
 {
-    [SerializeField] private LayerMask groundLayer;
+    public Action<float, float> OnMove;
 
+    [SerializeField] private SoundData jumpSound;
+    [SerializeField] private SoundData walkSound;
+    [SerializeField] private LayerMask groundLayer;
     [SerializeField] private float speed = 5f;
 
     private PlayerInput playerInput;
     private Rigidbody2D rb;
+
+    private SoundEmiter walkSoundEmitter;
 
     private float moveDirection;
 
@@ -38,8 +44,28 @@ public class PlayerMovement : MonoBehaviour, ILoadable
         velocity.x = moveDirection * speed;
 
         rb.linearVelocity = velocity;
+        
+        OnMove?.Invoke(velocity.x, velocity.y);
     }
 
+    private void WalkSoundControl()
+    {
+        if (Mathf.Abs(rb.linearVelocity.x) > 0.1f && IsOnGrond() && walkSoundEmitter == null)
+        {
+            SoundBuilder soundBuilder = SoundPool.Instance.CreateSoundBuilder()
+                .WithSoundData(walkSound)
+                .AtPosition(transform.position);
+            walkSoundEmitter = soundBuilder.Play();
+        }
+        else
+        {
+            if (walkSoundEmitter != null)
+            {
+                walkSoundEmitter.StopSound();
+                walkSoundEmitter = null;
+            }
+        }
+    }
     private void HandleMove(float direction)
     {
         moveDirection = direction;
@@ -52,6 +78,10 @@ public class PlayerMovement : MonoBehaviour, ILoadable
             return;
         }
 
+        SoundBuilder soundBuilder = SoundPool.Instance.CreateSoundBuilder()
+            .WithSoundData(jumpSound)
+            .AtPosition(transform.position);
+        soundBuilder.Play();
         rb.gravityScale = -rb.gravityScale;
     }
     
