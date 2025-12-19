@@ -8,8 +8,9 @@ public class SaveDataType
     public float yPlayerPosition;
     public float zPlayerPosition;
     public string sceneName;
+    public bool isKeyCollected;
 
-    public SaveDataType(Vector3 position, string scene)
+    public SaveDataType(Vector3 position, string scene, bool isKeyCollected)
     {
         xPlayerPosition = position.x;
         yPlayerPosition = position.y;
