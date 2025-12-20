@@ -5,28 +5,21 @@ public class PlayerVisualRotation : MonoBehaviour
     [SerializeField] private SpriteRenderer playerSpriteRenderer;
     [SerializeField] private LayerMask groundLayer;
 
-    private PlayerInput playerInput;
-    private Rigidbody2D rb;
+    private PlayerMovement playerMovement;
 
     private void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
-        playerInput = GetComponent<PlayerInput>();
-        playerInput.OnGravity += HandleGravityChange;
+        playerMovement = GetComponent<PlayerMovement>();
+        playerMovement.OnGravityChange += HandleGravityChange;
     }
 
     private void HandleGravityChange()
     {
-        if(!IsOnGrond())
-        {
-            return;
-        }
-        
         playerSpriteRenderer.flipY = !playerSpriteRenderer.flipY;
     }
 
-    private bool IsOnGrond()
+    public void Respawn()
     {
-        return rb.IsTouchingLayers(groundLayer);
+        playerSpriteRenderer.flipY = false;
     }
 }

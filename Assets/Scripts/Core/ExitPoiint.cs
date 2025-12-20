@@ -7,6 +7,7 @@ public class ExitPoiint : MonoBehaviour, ILoadable
     [SerializeField] private GameObject activeExitPointSprite;
     [SerializeField] private GameObject deactiveExitPointSprite;
     [SerializeField] private PlayerCollisiion playerCollision;
+    [SerializeField] private SoundData exitSound;
 
     [SerializeField] private int nextLevelIndex;
 
@@ -37,6 +38,10 @@ public class ExitPoiint : MonoBehaviour, ILoadable
         {
             if(playerCollision.HasKey)
             {
+                SoundBuilder soundBuilder = SoundPool.Instance.CreateSoundBuilder()
+                    .WithSoundData(exitSound)
+                    .AtPosition(transform.position);
+                soundBuilder.Play();
                 SceneManager.LoadScene(nextLevelIndex);
             }
         }

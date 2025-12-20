@@ -1,9 +1,11 @@
 using System;
+using NUnit.Framework;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour, ILoadable
 {
     public Action<float, float> OnMove;
+    public Action OnGravityChange;
 
     [SerializeField] private SoundData jumpSound;
     [SerializeField] private SoundData walkSound;
@@ -17,6 +19,7 @@ public class PlayerMovement : MonoBehaviour, ILoadable
 
     private float moveDirection;
 
+    private bool gravitySwitchLocked = false;
 
     private void Awake()
     {
@@ -35,6 +38,11 @@ public class PlayerMovement : MonoBehaviour, ILoadable
     private void FixedUpdate()
     {
         Move();
+
+        if(IsOnGrond())
+        {
+            gravitySwitchLocked = false;
+        }
     }
 
     private void Move()
@@ -45,21 +53,22 @@ public class PlayerMovement : MonoBehaviour, ILoadable
 
         rb.linearVelocity = velocity;
         
+        WalkSoundControl();
         OnMove?.Invoke(velocity.x, velocity.y);
     }
 
     private void WalkSoundControl()
     {
-        if (Mathf.Abs(rb.linearVelocity.x) > 0.1f && IsOnGrond() && walkSoundEmitter == null)
+        if (Mathf.Abs(rb.linearVelocity.x) > 0.1f && !gravitySwitchLocked && walkSoundEmitter == null)
         {
             SoundBuilder soundBuilder = SoundPool.Instance.CreateSoundBuilder()
                 .WithSoundData(walkSound)
                 .AtPosition(transform.position);
             walkSoundEmitter = soundBuilder.Play();
         }
-        else
+        else if(Mathf.Abs(rb.linearVelocity.x) <= 0.1f || IsOnGrond() == false)
         {
-            if (walkSoundEmitter != null)
+            if(walkSoundEmitter !=null)
             {
                 walkSoundEmitter.StopSound();
                 walkSoundEmitter = null;
@@ -73,16 +82,25 @@ public class PlayerMovement : MonoBehaviour, ILoadable
 
     private void HandleGravityChange()
     {
+
+        if (gravitySwitchLocked)
+        {
+            return;
+        }
+
         if(!IsOnGrond())
         {
             return;
         }
+
+        gravitySwitchLocked = true;
 
         SoundBuilder soundBuilder = SoundPool.Instance.CreateSoundBuilder()
             .WithSoundData(jumpSound)
             .AtPosition(transform.position);
         soundBuilder.Play();
         rb.gravityScale = -rb.gravityScale;
+        OnGravityChange?.Invoke();
     }
     
     private bool IsOnGrond()

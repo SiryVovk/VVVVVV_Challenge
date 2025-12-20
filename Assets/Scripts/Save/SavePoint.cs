@@ -6,6 +6,8 @@ public class SavePoint : MonoBehaviour
     [SerializeField] private GameObject activeSavePointSprite;
     [SerializeField] private GameObject deactiveSvePointSprite;
 
+    [SerializeField] private SoundData saveSound;
+
     private bool isDeactivated = false;
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -18,6 +20,10 @@ public class SavePoint : MonoBehaviour
         if(collision.gameObject.TryGetComponent(out PlayerCollisiion player))
         {
             SaveManager.SaveData(player.transform.position, SceneManager.GetActiveScene(), player.HasKey);
+            SoundBuilder soundBuilder = SoundPool.Instance.CreateSoundBuilder()
+                .WithSoundData(saveSound)
+                .AtPosition(transform.position);
+            soundBuilder.Play();
             DeactivatePoint();
         }
     }

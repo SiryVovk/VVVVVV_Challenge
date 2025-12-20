@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 8012731516746517493}
   - component: {fileID: 213429516306110490}
   - component: {fileID: 7531171797036182364}
+  - component: {fileID: 6413077373104739935}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -73,7 +74,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.013745785, y: 0.039985895}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -83,7 +84,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.2635746, y: 1.2456613}
+  m_Size: {x: 0.7, y: 0.7}
   m_EdgeRadius: 0
 --- !u!50 &2793213372004946559
 Rigidbody2D:
@@ -136,6 +137,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ed2c3e6720bdd64aa2e008f17d72320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpSound:
+    soundClip: {fileID: 8300000, guid: 2505a6f3e3cac7b4197ddbf9b050a0b1, type: 3}
+    mixerGroup: {fileID: 6854813610012652971, guid: 00904e31377999a4d93694c1d68b1b24, type: 2}
+    loop: 0
+    playOnAwake: 0
+  walkSound:
+    soundClip: {fileID: 8300000, guid: 946efc5ef20bac446b5145e7c70381d2, type: 3}
+    mixerGroup: {fileID: 6854813610012652971, guid: 00904e31377999a4d93694c1d68b1b24, type: 2}
+    loop: 1
+    playOnAwake: 0
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -152,6 +163,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b51dc1b707600c34cb2a96c9084a8fc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerCollisiion
+  deathSound:
+    soundClip: {fileID: 8300000, guid: dd5a21c2af3323f42b22d4f76e6fb81b, type: 3}
+    mixerGroup: {fileID: 6854813610012652971, guid: 00904e31377999a4d93694c1d68b1b24, type: 2}
+    loop: 0
+    playOnAwake: 0
+  keyCollectSound:
+    soundClip: {fileID: 0}
+    mixerGroup: {fileID: 0}
+    loop: 0
+    playOnAwake: 0
 --- !u!114 &213429516306110490
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,6 +203,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAnimation
   playerAnimator: {fileID: 5189997383865254029}
   playerMovement: {fileID: 4188543746340239545}
+--- !u!114 &6413077373104739935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 412600939883722493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b51dc1b707600c34cb2a96c9084a8fc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerCollisiion
+  deathSound:
+    soundClip: {fileID: 8300000, guid: dd5a21c2af3323f42b22d4f76e6fb81b, type: 3}
+    mixerGroup: {fileID: 6854813610012652971, guid: 00904e31377999a4d93694c1d68b1b24, type: 2}
+    loop: 0
+    playOnAwake: 0
+  keyCollectSound:
+    soundClip: {fileID: 0}
+    mixerGroup: {fileID: 0}
+    loop: 0
+    playOnAwake: 0
 --- !u!1 &8013916127365529608
 GameObject:
   m_ObjectHideFlags: 0
