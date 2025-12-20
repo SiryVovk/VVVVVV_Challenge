@@ -39,5 +39,4 @@ public class PlayerAnimation : MonoBehaviour
             playerAnimator.SetBool(IsMovingVertical, false);
         }
     }
-
 }

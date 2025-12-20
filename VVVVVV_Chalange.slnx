@@ -36,8 +36,8 @@
   <Project Path="Unity.AI.Animate.csproj" />
   <Project Path="Unity.AI.Toolkit.Accounts.csproj" />
   <Project Path="PPv2URPConverters.csproj" />
-  <Project Path="Unity.2D.Animation.Editor.csproj" />
   <Project Path="Unity.InferenceEngine.csproj" />
+  <Project Path="Unity.2D.Animation.Editor.csproj" />
   <Project Path="Unity.Searcher.Editor.csproj" />
   <Project Path="Unity.AI.Generators.Redux.csproj" />
   <Project Path="Unity.AI.Sound.csproj" />
@@ -45,8 +45,8 @@
   <Project Path="Unity.2D.SpriteShape.Runtime.csproj" />
   <Project Path="UnityEditor.TestRunner.csproj" />
   <Project Path="Unity.VisualScripting.Core.csproj" />
-  <Project Path="Unity.RenderPipelines.Universal.Runtime.csproj" />
   <Project Path="Unity.InferenceEngine.Editor.csproj" />
+  <Project Path="Unity.RenderPipelines.Universal.Runtime.csproj" />
   <Project Path="Unity.UnifiedRayTracing.Runtime.csproj" />
   <Project Path="Unity.VisualScripting.State.Editor.csproj" />
   <Project Path="Unity.Burst.CodeGen.csproj" />
@@ -100,8 +100,8 @@
   <Project Path="Unity.AI.Toolkit.Async.csproj" />
   <Project Path="Unity.VisualScripting.Shared.Editor.csproj" />
   <Project Path="Unity.AppUI.Redux.Editor.csproj" />
-  <Project Path="Unity.2D.Aseprite.Common.csproj" />
   <Project Path="Unity.AI.Toolkit.Compliance.csproj" />
+  <Project Path="Unity.2D.Aseprite.Common.csproj" />
   <Project Path="Unity.2D.Enhancers.Editor.AIBridge.csproj" />
   <Project Path="Unity.AppUI.Undo.csproj" />
   <Project Path="Unity.AI.Generators.Contexts.csproj" />

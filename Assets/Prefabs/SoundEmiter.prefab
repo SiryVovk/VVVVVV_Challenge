@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3044631524418527911}
   - component: {fileID: 8978294890250630176}
+  - component: {fileID: -5424709490043786566}
   m_Layer: 0
   m_Name: SoundEmiter
   m_TagString: Untagged
@@ -129,3 +130,15 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-5424709490043786566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2993258678838323441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 331dca36e8d28754d94778fab0ce63a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SoundEmiter

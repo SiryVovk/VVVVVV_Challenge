@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class PlayerCollisiion : MonoBehaviour, ILoadable
 {
+    [SerializeField] private SoundData deathSound;
+    [SerializeField] private SoundData keyCollectSound;
+
     public Action OnPlayerDeath;
     public Action OnKeyCollected;
 
@@ -22,10 +25,19 @@ public class PlayerCollisiion : MonoBehaviour, ILoadable
         if(collision.gameObject.CompareTag(OBSTICLE_TAG))
         {
             OnPlayerDeath?.Invoke();
+            SoundBuilder soundBuilder = SoundPool.Instance.CreateSoundBuilder()
+                .WithSoundData(deathSound)
+                .AtPosition(transform.position);
+
+            soundBuilder.Play();
         }
 
         if(collision.gameObject.TryGetComponent(out Key key))
         {
+            SoundBuilder soundBuilder = SoundPool.Instance.CreateSoundBuilder()
+                .WithSoundData(keyCollectSound)
+                .AtPosition(transform.position);
+            soundBuilder.Play();
             hasKey = true;
             OnKeyCollected?.Invoke();
             Destroy(key.gameObject);

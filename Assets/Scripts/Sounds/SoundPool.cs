@@ -27,6 +27,7 @@ public class SoundPool : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+        DontDestroyOnLoad(gameObject);
 
         InitializePool();
     }

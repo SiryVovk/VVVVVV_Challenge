@@ -51,7 +51,7 @@ public class SoundEmiter : MonoBehaviour
     public void Initilize(SoundData soundData)
     {
         SoundData = soundData;
-        audioSource.clip = soundData.sfxClip;
+        audioSource.clip = soundData.soundClip;
         audioSource.outputAudioMixerGroup = soundData.mixerGroup;
         audioSource.loop = soundData.loop;
         audioSource.playOnAwake = soundData.playOnAwake;
