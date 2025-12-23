@@ -1,16 +1,29 @@
+using System;
+using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using static Unity.VisualScripting.Icons;
 
 public class LanguageDropdown : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] private TMP_Dropdown dropdown;
+
+    private void Start()
     {
-        
+        dropdown.ClearOptions();
+
+        dropdown.AddOptions(new List<string>
+        {   "English",
+            "Óêðà¿íñüêà"
+        });
+
+        dropdown.onValueChanged.AddListener(OnDropdownChanged);
+
+        dropdown.value = (int)LocalizationManager.Instanñe.CurrentLanguage;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDropdownChanged(int index)
     {
-        
+        LocalizationManager.Instanñe.LoadLanguages((Languages)index);
     }
 }

@@ -3,7 +3,8 @@ using UnityEngine;
 
 public class LocalizationManager : MonoBehaviour
 {
-    public LocalizationManager Instanse {get; private set;}
+    public static LocalizationManager Instanñe {get; private set;}
+    public Languages CurrentLanguage => currentLanguage;
 
     private Dictionary<string, string> localizedText;
     private Languages currentLanguage;
@@ -11,12 +12,12 @@ public class LocalizationManager : MonoBehaviour
 
     private void Awake()
     {
-        if(Instanse != null)
+        if(Instanñe != null)
         {
             Destroy(this);
         }
 
-        Instanse = this;
+        Instanñe = this;
         DontDestroyOnLoad(this);
 
         currentLanguage = (Languages)PlayerPrefs.GetInt(LANGUAGE_KEY, 0);
