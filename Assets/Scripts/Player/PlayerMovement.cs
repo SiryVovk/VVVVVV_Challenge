@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour, ILoadable
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private float speed = 5f;
 
-    private PlayerInput playerInput;
+    private PlayerInputController playerInput;
     private Rigidbody2D rb;
 
     private SoundEmiter walkSoundEmitter;
@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour, ILoadable
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        playerInput = GetComponent<PlayerInput>();
+        playerInput = GetComponent<PlayerInputController>();
         playerInput.OnMove += HandleMove;
         playerInput.OnGravity += HandleGravityChange;
     }
