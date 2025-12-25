@@ -1,0 +1,20 @@
+{
+  "entries": 
+  [
+	{ "key": "MENU_START", "value": "Почати гру" },
+	{ "key": "CONTINUE", "value": "Продовжити" },
+	{ "key": "OPTIONS", "value": "Налаштування" },
+	{ "key": "EXIT", "value": "Вийти з гри" },
+	{ "key": "BACK", "value": "Назад" },
+	{ "key": "MASTER_VOLUME", "value": "Загальна гучність" },
+	{ "key": "MUSIC_VOLUME", "value": "Гучність музики" },
+	{ "key": "SOUND_VOLUME", "value": "Гучність звуків" },
+	{ "key": "LEFT", "value": "Ліворуч" },
+	{ "key": "RIGHT", "value": "Праворуч" },
+	{ "key": "GRAVITY", "value": "Гравітація" },
+	{ "key": "DEFAULT", "value": "Скинути" },
+	{ "key": "LANGUAGE", "value": "Мови" },
+	{ "key": "RESUME", "value": "Продовжити" },
+	{ "key": "TO_MENU", "value": "В меню" }
+  ]
+}

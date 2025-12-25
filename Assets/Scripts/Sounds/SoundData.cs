@@ -8,5 +8,6 @@ public class SoundData
     public AudioClip soundClip;
     public AudioMixerGroup mixerGroup;
     public bool loop;
+    public bool autoRelease;
     public bool playOnAwake;
 }

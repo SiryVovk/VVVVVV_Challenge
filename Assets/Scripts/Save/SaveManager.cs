@@ -45,6 +45,8 @@ public static class SaveManager
         {
             File.Delete(path);
         }
+
+        CurrentSave = null;
     }
 
     public static bool HasSave()

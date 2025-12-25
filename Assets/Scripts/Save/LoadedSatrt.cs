@@ -7,7 +7,7 @@ public class LoadedSatrt : MonoBehaviour
 
     void Start()
     {
-        if(SaveManager.IsSaveLoaded)
+        if(SaveManager.IsSaveLoaded && SaveManager.HasSave())
         {
             playerMovement.LoadData();
         }

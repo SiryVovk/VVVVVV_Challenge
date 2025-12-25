@@ -6,7 +6,6 @@ public class MainMenuMainButtons : MonoBehaviour
 {
     [SerializeField] private GameObject mainMenuUI;
     [SerializeField] private GameObject optionsMenuUI;
-    [SerializeField] private GameObject creditsMenuUI;
     [SerializeField] private Button continueButton;
     [SerializeField] private SoundData buttonSound;
 
@@ -45,13 +44,6 @@ public class MainMenuMainButtons : MonoBehaviour
         optionsMenuUI.SetActive(true);
     }
     
-    public void CreditsButton()
-    {
-        PlayButtonSound();
-        mainMenuUI.SetActive(false);
-        creditsMenuUI.SetActive(true);
-    }
-
     public void ExitButton()
     {
         PlayButtonSound();
@@ -66,7 +58,6 @@ public class MainMenuMainButtons : MonoBehaviour
     {
         PlayButtonSound();
         optionsMenuUI.SetActive(false);
-        creditsMenuUI.SetActive(false);
         mainMenuUI.SetActive(true);
     }
 
