@@ -7,7 +7,9 @@ using UnityEngine.InputSystem;
 public class Rebinding : MonoBehaviour
 {
     public Action OnReturnToDefaultBinding;
-    [SerializeField] private Player inputActions;
+    public Action OnRebinding;
+
+    private Player inputActions;
 
     private const string INPUT_BINDING = "InputBindings";
 
@@ -15,8 +17,7 @@ public class Rebinding : MonoBehaviour
 
     private void Awake()
     {
-        inputActions = new Player();
-        inputActions.Enable();
+        inputActions = InputManager.Instance.Controls;
 
         if (PlayerPrefs.HasKey(INPUT_BINDING))
         {
@@ -24,11 +25,6 @@ public class Rebinding : MonoBehaviour
                 PlayerPrefs.GetString(INPUT_BINDING)
             );
         }
-    }
-
-    private void OnDisable()
-    {
-        inputActions.Disable();
     }
 
     public void StartRebinding(string actionName, int bindingIndex, Action<string> OnComplete)
@@ -62,6 +58,7 @@ public class Rebinding : MonoBehaviour
         });
 
         rebindingOperation.Start();
+        OnRebinding?.Invoke();
     }
 
     public void ResetBindings()

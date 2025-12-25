@@ -1,9 +1,11 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class LocalizationManager : MonoBehaviour
 {
-    public static LocalizationManager Instanñe {get; private set;}
+    public Action OnLanguageChange;
+    public static LocalizationManager Instance {get; private set;}
     public Languages CurrentLanguage => currentLanguage;
 
     private Dictionary<string, string> localizedText;
@@ -12,15 +14,16 @@ public class LocalizationManager : MonoBehaviour
 
     private void Awake()
     {
-        if(Instanñe != null)
+        if(Instance != null)
         {
             Destroy(this);
         }
 
-        Instanñe = this;
+        Instance = this;
         DontDestroyOnLoad(this);
 
         currentLanguage = (Languages)PlayerPrefs.GetInt(LANGUAGE_KEY, 0);
+        LoadLanguages(currentLanguage);
 
     }
 
@@ -35,12 +38,16 @@ public class LocalizationManager : MonoBehaviour
         localizedText = JsonUtility
         .FromJson<LocalizationWrapper>(jsonFile.text)
         .ToDictionary();
+
+        OnLanguageChange?.Invoke();
     }
 
     public string Get(string key)
     {
         if (localizedText.TryGetValue(key, out var value))
+        {
             return value;
+        }
 
         return $"#{key}";
     }

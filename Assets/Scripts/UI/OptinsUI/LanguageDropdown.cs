@@ -14,16 +14,16 @@ public class LanguageDropdown : MonoBehaviour
 
         dropdown.AddOptions(new List<string>
         {   "English",
-            "”Í‡øÌÒ¸Í‡"
+            "–£–∫—Ä–∞—ó–Ω—Å—å–∫–∞"
         });
 
         dropdown.onValueChanged.AddListener(OnDropdownChanged);
 
-        dropdown.value = (int)LocalizationManager.InstanÒe.CurrentLanguage;
+        dropdown.value = (int)LocalizationManager.Instance.CurrentLanguage;
     }
 
     private void OnDropdownChanged(int index)
     {
-        LocalizationManager.InstanÒe.LoadLanguages((Languages)index);
+        LocalizationManager.Instance.LoadLanguages((Languages)index);
     }
 }

@@ -19,7 +19,8 @@ public class SavePoint : MonoBehaviour
 
         if(collision.gameObject.TryGetComponent(out PlayerCollisiion player))
         {
-            SaveManager.SaveData(player.transform.position, SceneManager.GetActiveScene(), player.HasKey);
+            Vector3 positionToSave = new Vector3(player.transform.position.x, player.transform.position.y, 0f);
+            SaveManager.SaveData(positionToSave, SceneManager.GetActiveScene(), player.HasKey);
             SoundBuilder soundBuilder = SoundPool.Instance.CreateSoundBuilder()
                 .WithSoundData(saveSound)
                 .AtPosition(transform.position);

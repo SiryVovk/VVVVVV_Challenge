@@ -36,7 +36,7 @@ public class SoundBuilder
         soundEmmiter.Initilize(soundData);
         soundEmmiter.transform.position = position;
 
-        soundEmmiter.transform.parent = SoundPool.Instance.transform;
+        soundEmmiter.transform.SetParent(SoundPool.Instance.transform, false);
 
         if (randomizePitch)
         {

@@ -1,0 +1,20 @@
+{
+  "entries": 
+  [
+	{ "key": "MENU_START", "value": "Start Game" },
+	{ "key": "CONTINUE", "value": "Continue" },
+	{ "key": "OPTIONS", "value": "Options" },
+	{ "key": "EXIT", "value": "Exit" },
+	{ "key": "BACK", "value": "Back" },
+	{ "key": "MASTER_VOLUME", "value": "Master volume" },
+	{ "key": "MUSIC_VOLUME", "value": "Music volume" },
+	{ "key": "SOUND_VOLUME", "value": "Sounds volume" },
+	{ "key": "LEFT", "value": "Left" },
+	{ "key": "RIGHT", "value": "Right" },
+	{ "key": "GRAVITY", "value": "Gravity" },
+	{ "key": "DEFAULT", "value": "Default" },
+	{ "key": "LANGUAGE", "value": "Languages" },
+	{ "key": "RESUME", "value": "Resume" },
+	{ "key": "TO_MENU", "value": "To menu" }
+  ]
+}

@@ -8,22 +8,18 @@ public class PlayerInputController : MonoBehaviour, IMovementActions
     public Action<float> OnMove;
     public Action OnGravity;
 
-    private Player playerControls;
-
-    private const string INPUT_BINDING = "InputBindings";
-
-    private void Awake()
+    private void OnEnable()
     {
-        playerControls = new Player();
-        playerControls.Movement.SetCallbacks(this);
-        playerControls.Movement.Enable();
+        var control = InputManager.Instance.Controls;
+        control.Movement.AddCallbacks(this);
+        control.Movement.Enable();
+    }
 
-        if (PlayerPrefs.HasKey(INPUT_BINDING))
-        {
-            playerControls.LoadBindingOverridesFromJson(
-                PlayerPrefs.GetString(INPUT_BINDING)
-            );
-        }
+    private void OnDisable()
+    {
+        var control = InputManager.Instance.Controls;
+        control.Movement.Disable();
+        control.Movement.RemoveCallbacks(this);
     }
 
     public void OnLeftRight(InputAction.CallbackContext context)

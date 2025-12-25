@@ -52,6 +52,7 @@ MonoBehaviour:
     soundClip: {fileID: 8300000, guid: 1b246760e294622488b7a891f6b2b12f, type: 3}
     mixerGroup: {fileID: 6854813610012652971, guid: 00904e31377999a4d93694c1d68b1b24, type: 2}
     loop: 0
+    autoRelease: 1
     playOnAwake: 0
 --- !u!58 &7096446909142878865
 CircleCollider2D:

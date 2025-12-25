@@ -116,6 +116,6 @@ public class PlayerMovement : MonoBehaviour, ILoadable
 
     public void LoadData()
     {
-        transform.position = new Vector3(SaveManager.CurrentSave.xPlayerPosition, SaveManager.CurrentSave.yPlayerPosition, SaveManager.CurrentSave.yPlayerPosition);
+        transform.position = new Vector3(SaveManager.CurrentSave.xPlayerPosition, SaveManager.CurrentSave.yPlayerPosition, SaveManager.CurrentSave.zPlayerPosition);
     }
 }

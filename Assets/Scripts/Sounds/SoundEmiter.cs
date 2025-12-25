@@ -15,8 +15,6 @@ public class SoundEmiter : MonoBehaviour
         {
             audioSource = gameObject.AddComponent<AudioSource>();
         }
-
-
     }
     public void PlaySound()
     {
@@ -26,7 +24,11 @@ public class SoundEmiter : MonoBehaviour
         }
         
         audioSource.Play();
-        playingRoutine = StartCoroutine(PlaySoundRoutine());
+
+        if(SoundData.autoRelease)
+        {
+            playingRoutine = StartCoroutine(PlaySoundRoutine());
+        }
     }
 
     public void StopSound()
