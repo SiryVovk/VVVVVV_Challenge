@@ -5,31 +5,24 @@ Focuses on level design, basic movement, obstacles, and UI.
 
 Git (feature branches used for development)
 🎮 Implemented Features
-Player Controls — simple movement for 3-key input setup.
+Movement
+Animations
+Sounds and Music
+Obsticles
+Settings
+Saves
 
-First Level Layout — basic level constructed (still in progress).
+<img width="1557" height="868" alt="image" src="https://github.com/user-attachments/assets/7720f516-2933-4197-b422-2658d62a7c61" />
+<img width="1547" height="865" alt="image" src="https://github.com/user-attachments/assets/18eced16-6373-4920-b003-0a58c48e618f" />
+<img width="1545" height="862" alt="image" src="https://github.com/user-attachments/assets/77b34937-ed87-4d45-93d1-fdf65872cc49" />
+<img width="1545" height="864" alt="image" src="https://github.com/user-attachments/assets/9f4e0e6e-edb2-464a-83a3-6f1af389bbb9" />
 
-Obstacles:
 
-Static spikes
 
-Breakable platform (breaks when player steps on it)
 
-Movable obstacle script with configurable amplitude (works both axes), can be reused for different obstacles.
 
-Universal Movement Script — allows flexible obstacle movement with adjustable amplitude along X and Y axes.
-🚧 Project Status
 
-Active development
-Experimental scripts and modular systems available in feature branches
 
-branches
-bug-fix/Player_movement_fix
-main 
-
-<img width="1578" height="882" alt="image" src="https://github.com/user-attachments/assets/284ff38d-b7d8-42d4-a9af-78ed0fff8e77" />
-<img width="1582" height="888" alt="image" src="https://github.com/user-attachments/assets/c08dc919-0a02-48a5-b648-4bf0d16503a3" />
-<img width="1582" height="880" alt="image" src="https://github.com/user-attachments/assets/3c82286c-5229-438a-992c-677a1b64ad62" />
 
 
 
