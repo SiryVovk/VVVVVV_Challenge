@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class CameraRoomsChange : MonoBehaviour
+public class CameraRoomsChange : MonoBehaviour, ILoadable
 {
     [SerializeField] private Transform playerTransform;
     [SerializeField] private Vector2 roomsSize;
@@ -68,4 +68,12 @@ public class CameraRoomsChange : MonoBehaviour
         changeRoomRoutine = null;
     }
 
+    public void LoadData()
+    {
+        if(SaveManager.CurrentSave != null)
+        {
+            Vector3 cameraPosition = new Vector3(SaveManager.CurrentSave.xCameraPosition, SaveManager.CurrentSave.yCameraPosition, SaveManager.CurrentSave.zCameraPosition);
+            transform.position = cameraPosition;
+        }
+    }
 }

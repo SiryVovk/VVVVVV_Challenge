@@ -15,6 +15,9 @@
 	{ "key": "DEFAULT", "value": "Скинути" },
 	{ "key": "LANGUAGE", "value": "Мови" },
 	{ "key": "RESUME", "value": "Продовжити" },
-	{ "key": "TO_MENU", "value": "В меню" }
+	{ "key": "TO_MENU", "value": "В меню" },
+	{ "key": "FIRST_INSTRUCTION", "value": "Тисни A/D  щоб рухатися ліворуч і праоруч" },
+	{ "key": "SECOND_INSTRUCTION", "value": "Тисни Space щоб міняти гравітацію" },
+	{ "key": "THIRD_INSTRUCTION", "value": "Не забудь ключа. Без нього вихід не відкриється" }
   ]
 }

@@ -15,6 +15,9 @@
 	{ "key": "DEFAULT", "value": "Default" },
 	{ "key": "LANGUAGE", "value": "Languages" },
 	{ "key": "RESUME", "value": "Resume" },
-	{ "key": "TO_MENU", "value": "To menu" }
+	{ "key": "TO_MENU", "value": "To menu" },
+	{ "key": "FIRST_INSTRUCTION", "value": "Press A/D  to  move left  and right" },
+	{ "key": "SECOND_INSTRUCTION", "value": "Press Space to change gravitation" },
+	{ "key": "THIRD_INSTRUCTION", "value": "Don`t forget key or exit will be closed" }
   ]
 }
