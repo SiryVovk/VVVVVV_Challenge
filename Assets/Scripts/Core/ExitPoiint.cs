@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,6 +9,7 @@ public class ExitPoiint : MonoBehaviour, ILoadable
     [SerializeField] private GameObject deactiveExitPointSprite;
     [SerializeField] private PlayerCollisiion playerCollision;
     [SerializeField] private SoundData exitSound;
+    [SerializeField] private FadeRoutine fadeRoutine;
 
     [SerializeField] private int nextLevelIndex;
 
@@ -42,7 +44,7 @@ public class ExitPoiint : MonoBehaviour, ILoadable
                     .WithSoundData(exitSound)
                     .AtPosition(transform.position);
                 soundBuilder.Play();
-                SceneManager.LoadScene(nextLevelIndex);
+                StartCoroutine(StartRoutine(nextLevelIndex));
             }
         }
     }
@@ -54,5 +56,13 @@ public class ExitPoiint : MonoBehaviour, ILoadable
             activeExitPointSprite.SetActive(true);
             deactiveExitPointSprite.SetActive(false);
         }
+    }
+
+    private IEnumerator StartRoutine(int index)
+    {
+        yield return fadeRoutine.FadeIn();
+        yield return new WaitUntil(() => !fadeRoutine.IsFading);
+
+        SceneManager.LoadScene(index);
     }
 }

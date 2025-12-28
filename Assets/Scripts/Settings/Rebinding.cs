@@ -1,6 +1,4 @@
 using System;
-using Unity.AppUI.UI;
-using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.InputSystem;
 

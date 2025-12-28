@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -8,6 +9,7 @@ public class MainMenuMainButtons : MonoBehaviour
     [SerializeField] private GameObject optionsMenuUI;
     [SerializeField] private Button continueButton;
     [SerializeField] private SoundData buttonSound;
+    [SerializeField] private FadeRoutine fadeRoutine;
 
     private const int FIRST_LEVEL_INDEX = 1;
 
@@ -27,14 +29,15 @@ public class MainMenuMainButtons : MonoBehaviour
     {
         PlayButtonSound();
         SaveManager.LoadToMemory();
-        SceneManager.LoadScene(SaveManager.CurrentSave.sceneName);
+        int levelIndex = SceneUtility.GetBuildIndexByScenePath(SaveManager.CurrentSave.sceneName);
+        StartCoroutine(StartRoutine(levelIndex));
     }
 
     public void StartNewGame()
     {
         PlayButtonSound();
         SaveManager.DelteSave();
-        SceneManager.LoadScene(FIRST_LEVEL_INDEX);
+        StartCoroutine(StartRoutine(FIRST_LEVEL_INDEX));
     }
 
     public void OptionsButton()
@@ -67,5 +70,13 @@ public class MainMenuMainButtons : MonoBehaviour
             .WithSoundData(buttonSound)
             .AtPosition(Vector3.zero);
         soundBuilder.Play();
+    }
+
+    private IEnumerator StartRoutine(int index)
+    {
+        yield return fadeRoutine.FadeIn();
+        yield return new WaitUntil(() => !fadeRoutine.IsFading);
+
+        SceneManager.LoadScene(index);
     }
 }
